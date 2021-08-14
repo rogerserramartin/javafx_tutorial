@@ -3,6 +3,8 @@ package com.test;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -16,30 +18,13 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        helloWorld(primaryStage);
+        Parent parent = FXMLLoader.load(getClass().getResource("view/firstFXML.fxml"));
 
-    }
-
-    private void helloWorld(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World!'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("Hello world!");
-            }
-        });
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-
-        Scene scene = new Scene(root, 300, 250);
-
-        primaryStage.setTitle("Hello World!");
+        Scene scene = new Scene(parent, 300, 250);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-
-
     }
+
+
 }
